@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+   <META http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+   
+   <title>netget</title>
+   
+   <meta name="generator" content="XINS">
+   <meta name="description" content="Test form for the ExecRemoteFile function of the netget API.">
+
+   <link rel="stylesheet"
+         type="text/css"
+         href="style.css">
+         
+   <link rel="icon" 
+         type="image/png" 
+         href="/images/noof.png">
+         
+   <script type="text/javascript"
+         src="testforms.js">
+   </script>
+</head>
+
+<body onload="selectEnv();">
+
+   <h1>Download and execute a file from any URL</h1>
+
+   <form id="formTest" method="GET" action="http://127.0.0.1" target="xmlOutputFrame" onsubmit="this.action=this._environment.value;setEnvCookie(this);return doRequest(this);">
+
+      <input id="in_function" name="_function" value="" type="hidden">
+      <input id="in_convention" name="_convention" value="_xins-std" type="hidden">
+      <input id="in_environment" name="_environment" value="http://127.0.0.1" type="hidden">
+      <input id="in_url" name="URL" value="" type="hidden">
+
+      <div class="value">
+         <span title="The remote address of the torrent file">URL</span>
+         <input id="url_text" type="text" class="required" value="" size="300" style="width:50%">
+         <input type="submit" class="button" value="magnet" onclick="document.pressed=this.value">
+         <input type="submit" class="button" value="file" onclick="document.pressed=this.value">
+         <input type="submit" class="button" value="file.torrent" onclick="document.pressed=this.value">
+      </div>
+      
+   </form>
+
+   <div class="url" style="padding-bottom: 5pt" id="query">
+   </div>
+
+   <iframe height="500" id="xmlOutputFrame" name="xmlOutputFrame" src="about:blank" width="90%"></iframe>
+
+   <div class="footer" title="Version ?.? (?.?.?, ?:?)">Version ?.?.Generated using <a href="http://www.xins.org/">XINS</a> 2.3.
+   </div>
+
+</body>
+
+</html>
