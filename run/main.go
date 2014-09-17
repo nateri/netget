@@ -36,7 +36,7 @@ func ProcessExecCmd(Cmd string) error {
 	//cmd.Stdout = &out
 	//err := cmd.Run()
 	err := cmd.Start()
-	if err != nil {
+	if nil != err {
 		log.Debug("[ProcessExecCmd] [%+v]", err)
 		return err
 	}
@@ -52,7 +52,7 @@ func ProcessExecFile(Url string) error {
 	filename := filepath.Join(saveRemoteTo, Url[name_idx+1:])
 	log.Debug("[ProcessExecFile] [%v]", filename)
 
-	if err := SaveFileFromUri(filename, Url); err != nil {
+	if err := SaveFileFromUri(filename, Url); nil != err {
 		log.Debug("[ProcessExecFile] [%+v]", err)
 		return err
 	}
@@ -64,21 +64,21 @@ func SaveFileFromUri(out_path string, in_path string) error {
 	log.Debug("[SaveFileFromUri] [%+v] [%+v]", out_path, in_path)
 
 	out, err := os.Create(out_path)
-	if err != nil {
+	if nil != err {
 		log.Debug("[File not created: %+v]", err)
 		return err
 	}
 	defer out.Close()
 
 	resp, err := http.Get(in_path)
-	if err != nil {
+	if nil != err {
 		log.Debug("[Path not found: %+v]", err)
 		return err
 	}
 	defer resp.Body.Close()
 
 	_, err = io.Copy(out, resp.Body)
-	if err != nil {
+	if nil != err {
 		log.Debug("[Copy failed: %+v]", err)
 		return err
 	}
